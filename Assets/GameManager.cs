@@ -6,9 +6,10 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
+
     public int score;
     public int airShipsDestroyed;
-    public static int hiScore;
+    public static int hiScore = 0;
     public TextMeshProUGUI hiScoreText;
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI levelText;
@@ -33,11 +34,17 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+
         guns[0].SetActive(true);
         guns[1].SetActive(false);
         guns[2].SetActive(false);
         guns[3].SetActive(false);
         levelText.text = 1.ToString();
+
+        hiScore = PlayerPrefs.GetInt("HiScore");
+        hiScoreText.text = hiScore.ToString();
+        
+
     }
     public void StartGame()
     {
@@ -47,6 +54,11 @@ public class GameManager : MonoBehaviour
     public void Retry()
     {
         SceneManager.LoadScene(1);
+    }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 
 
@@ -64,7 +76,7 @@ public class GameManager : MonoBehaviour
             guns[1].SetActive(true);
             guns[2].SetActive(false);
             guns[3].SetActive(false);
-            levelText.text = 2.ToString();
+           
 
         }
 
@@ -74,7 +86,7 @@ public class GameManager : MonoBehaviour
             guns[1].SetActive(false);
             guns[2].SetActive(true);
             guns[3].SetActive(false);
-            levelText.text = 3.ToString();
+            
         }
 
         else if (airShipsDestroyed >= rdupgrade)
@@ -83,7 +95,7 @@ public class GameManager : MonoBehaviour
             guns[1].SetActive(false);
             guns[2].SetActive(false);
             guns[3].SetActive(true);
-            levelText.text = 4.ToString();
+            
         }
 
         if (airShipsDestroyed >= secondWave)
@@ -94,34 +106,42 @@ public class GameManager : MonoBehaviour
         if (airShipsDestroyed >= thirdWave)
         {
             waves[1].SetActive(true);
+            levelText.text = 1.ToString();
         }
         if (airShipsDestroyed >= fourthWave)
         {
             waves[2].SetActive(true);
+            levelText.text = 2.ToString();
         }
         if (airShipsDestroyed >= fifthWave)
         {
             waves[3].SetActive(true);
+            levelText.text = 3.ToString();
         }
         if (airShipsDestroyed >= sixthWave)
         {
             waves[4].SetActive(true);
+            levelText.text = 4.ToString();
         }
         if (airShipsDestroyed >= seventhWave)
         {
             waves[5].SetActive(true);
+            levelText.text = 5.ToString();
         }
         if (airShipsDestroyed >= eightWave)
         {
             waves[6].SetActive(true);
+            levelText.text = 6.ToString();
         }
         if (airShipsDestroyed >= ninthWave)
         {
             waves[7].SetActive(true);
+            levelText.text = 7.ToString();
         }
         if (airShipsDestroyed >= tenthWave)
         {
             waves[8].SetActive(true);
+            levelText.text = 8.ToString();
         }
     }
     public void FixedUpdate()
@@ -131,6 +151,8 @@ public class GameManager : MonoBehaviour
         {
             hiScore = score;
             hiScoreText.text = hiScore.ToString();
+            PlayerPrefs.SetInt("HiScore", hiScore);
+            PlayerPrefs.Save();
         }
     }
 

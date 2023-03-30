@@ -9,6 +9,8 @@ public class PlayerHealtScript : MonoBehaviour
 
     public HealtBar healthBar;
     public GameObject retryButton;
+    public GameObject mainMenuButton;
+    public GameObject gameOver;
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +37,8 @@ public class PlayerHealtScript : MonoBehaviour
         if (currentHealth <= 0)
         {
             retryButton.SetActive(true);
+            mainMenuButton.SetActive(true);
+            gameOver.SetActive(true);
             Destroy(gameObject);
         }
     }
