@@ -8,6 +8,8 @@ TagManager:
   - EnemyBullet
   - Target
   - MisTarget
+  - ShootTrigger
+  - Rakennus
   layers:
   - Default
   - TransparentFX

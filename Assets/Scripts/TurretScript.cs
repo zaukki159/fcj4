@@ -11,7 +11,7 @@ public class TurretScript : MonoBehaviour
     void Start()
     {
         target = GameObject.FindGameObjectsWithTag("Target");
-        InvokeRepeating("Shoot", 1f, 2f);
+       
     }
 
     // Update is called once per frame
@@ -22,6 +22,11 @@ public class TurretScript : MonoBehaviour
         transform.LookAt(target[rnd].transform);
     }
 
+    public void StartShooting()
+    {
+        print("Ammutaan");
+        InvokeRepeating("Shoot", 1f, 2f);
+    }
     public void Shoot()
     {
 

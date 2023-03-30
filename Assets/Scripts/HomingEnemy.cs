@@ -6,6 +6,7 @@ public class HomingEnemy : MonoBehaviour
 {
     public Transform target;
     public float enemySpeed = 5f;
+    public GameObject gun;
 
     // Start is called before the first frame update
     void Start()
@@ -22,9 +23,13 @@ public class HomingEnemy : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+      /*  if (other.gameObject.CompareTag("Player"))
         {
             Destroy(other.gameObject);
+        }*/
+        if(other.gameObject.CompareTag("ShootTrigger"))
+        {
+            gun.GetComponent<TurretScript>().StartShooting();
         }
     }
 }

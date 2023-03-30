@@ -151,7 +151,7 @@ PrefabInstance:
     - target: {fileID: 4653709216834029647, guid: ede2387650a12724284d36782ef72135, type: 3}
       propertyPath: bullet
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 6362303603417158925, guid: f7d6fdf7fd626ab4cb4a963d798361e2, type: 3}
     - target: {fileID: 4911576738765440747, guid: ede2387650a12724284d36782ef72135, type: 3}
       propertyPath: m_RootOrder
       value: 0
